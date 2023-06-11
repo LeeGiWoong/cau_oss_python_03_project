@@ -28,29 +28,28 @@ def start_process(path):
             print("[4] ptype")
             print("[5] location")
             select = int(input('type:'))
+            # 입력 숫자에 따라 그에 맞는 함수를 호출합니다.
+            # 모듈의 함수를 호출하기 전 사용자에게 키워드를 입력받아 함수의 인수로 사용합니다.
             if select == 1:
                 keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_name(spots, keyword)
             elif select == 2:
                 keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_city(spots, keyword)
             elif select == 3:
                 keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_district(spots, keyword)
             elif select == 4:
                 keyword = input('type ptype:')
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.filter_by_ptype(spots, keyword)
             elif select == 5:
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                # 튜플[locations]은 순서대로 최소위도, 최대위도, 최소경도, 최대경도를 포함합니다.
+                locations = (min_lat, max_lat, min_lon, max_lon)
+                spots = parking_spot_manager.filter_by_location(spots, locations)
             else:
                 print("invalid input")
         elif select == 3:

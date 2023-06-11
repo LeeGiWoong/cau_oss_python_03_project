@@ -59,6 +59,36 @@ def print_spots(spots):
     for spot in spots:
         print(spot)
 
+# version 3
+'''
+주어진 spots 리스트에서 각 키워드를 포함하는 spot 객체를 필터링하여 새로운 리스트를 반환합니다.
+filter_by_location의 경우 튜플을 매개변수로 받아 spot 객체를 필터링하여 새로운 리스트를 반환합니다.
+list 함축: list = [ 출력식 for 변수 in 범위 if 조건 ]
+'''
+def filter_by_name(spots, name):
+    list_filter_by_name = [spot for spot in spots if name in spot.get('name')]
+    return list_filter_by_name
+
+def filter_by_city(spots, city):
+    list_filter_by_city = [spot for spot in spots if city in spot.get('city')]
+    return list_filter_by_city
+
+def filter_by_district(spots, district):
+    list_filter_by_district = [spot for spot in spots if district in spot.get('district')]
+    return list_filter_by_district
+
+def filter_by_ptype(spots, ptype):
+    list_filter_by_ptype = [spot for spot in spots if ptype in spot.get('ptype')]
+    return list_filter_by_ptype
+
+def filter_by_location(spots, locations):
+    min_lat, max_lat, min_long, max_long = locations
+    list_filter_by_location = [spot for spot in spots if min_lat < spot.get('latitude') and\
+                                                         max_lat > spot.get('latitude') and\
+                                                         min_long < spot.get('longitude') and\
+                                                         max_long > spot.get('longitude')]
+    return list_filter_by_location
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")
