@@ -58,8 +58,8 @@ def start_process(path):
             print(keywords)
             keyword = input('type keyword:')
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
+                # 'sort_by_keyword' 함수를 호출합니다.
+                spots = parking_spot_manager.sort_by_keyword(spots, keyword)
             else: print("invalid input")
         elif select == 4:
             # 'Exit'를 출력하고 while문을 빠져나와 프로그램을 종료합니다.

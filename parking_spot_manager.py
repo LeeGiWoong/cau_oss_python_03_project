@@ -89,6 +89,17 @@ def filter_by_location(spots, locations):
                                                          max_long > spot.get('longitude')]
     return list_filter_by_location
 
+# version 4
+'''
+spots 리스트를 keyword에 따라 정렬하는 기능을 제공합니다.
+lambda function은 spot 객체를 입력으로 받아 해당 객체의 get 메서드를 호출하여 keyword에 해당하는 속성 값을 반환합니다.
+sorted function은 key값을 기준으로 spots 리스트를 오름차순으로 정렬합니다.
+sorted 함수에 lambda 함수를 사용하는 방법 : [ sorted(리스트 이름, key = lambda 매개변수:작업내용 ]
+'''
+def sort_by_keyword(spots, keyword):
+    sort_by_keyword_list = sorted(spots, key=lambda spot: spot.get(keyword))
+    return sort_by_keyword_list
+
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
     print("Testing the module...")
